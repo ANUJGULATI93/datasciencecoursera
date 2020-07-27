@@ -23,3 +23,4 @@ finaldataset<-merge(mean_std_set,act_label,by="activityID",all.x = TRUE)
 finaldata<-finaldataset[-64]
 tidyset<-aggregate(.~subjectID + activityID,data = finaldata,mean)
 tidyset <- tidyset[order(tidyset$subjectID, tidyset$activityID), ]
+write.table(tidyset,"tidyset.txt",row.names = FALSE)
